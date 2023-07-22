@@ -16,6 +16,7 @@ while True:
             model="gpt-3.5-turbo",
             messages=chat_log
         )
-        clean_assistant_response=assistant_response.strip("\n").strip()
+        assistant_response = response['choices'][0]['message']['content']
+        clean_assistant_response = assistant_response.strip("\n").strip()
         print("ChatGPT:", clean_assistant_response)
         chat_log.append({"role": "assistant", "content": clean_assistant_response})
